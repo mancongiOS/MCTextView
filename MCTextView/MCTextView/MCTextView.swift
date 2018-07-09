@@ -45,6 +45,31 @@ class MCTextView: UIView {
         }
     }
     
+    
+    public var text = "" {
+        didSet {
+            textView.text = text
+            
+            if text.isEmpty {
+                placeholderLabel.isHidden = false
+                limitCountLabel.text = "0/\(limitCount)"
+
+            } else {
+                placeholderLabel.isHidden = true
+                limitCountLabel.text = "\(text.count)/\(limitCount)"
+            }
+            
+        }
+    }
+    
+    
+    public var font : UIFont = UIFont.systemFont(ofSize: 15) {
+        didSet {
+            textView.font = font
+            placeholderLabel.font = font
+        }
+    }
+    
 
     /**
      * returnKeyType
@@ -119,7 +144,7 @@ class MCTextView: UIView {
         return label
     }()
     
-    public lazy var textView: UITextView = {
+    private lazy var textView: UITextView = {
         let view = UITextView()
         view.delegate = self
         view.font = UIFont.systemFont(ofSize: 14)

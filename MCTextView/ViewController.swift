@@ -27,9 +27,10 @@ class ViewController: UIViewController {
 
     lazy var textView: MCTextView = {
         let view = MCTextView()
-        view.textView.font = UIFont.systemFont(ofSize: 16)
+        view.font = UIFont.systemFont(ofSize: 20)
         view.limitCount = 200
         view.placeholder = "请输入内容"
+        view.text = "我输入内容了"
         view.returnKeyType = MCReturnKeyType.done
         view.backgroundColor = UIColor.init(white: 0.8, alpha: 1)
         return view
