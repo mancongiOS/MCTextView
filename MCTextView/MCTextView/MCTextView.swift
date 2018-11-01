@@ -15,12 +15,12 @@ import UIKit
  * 根据行高自动增高
 */
 
-enum MCReturnKeyType {
+public enum MCReturnKeyType {
     case done      // 完成按钮，点击收起键盘
     case newline   // 换行按钮，点击换行处理
 }
 
-class MCTextView: UIView {
+public class MCTextView: UIView {
 
     
     /**
@@ -96,11 +96,11 @@ class MCTextView: UIView {
         self.addSubview(textView)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         self.placeholderLabel.font = textView.font
 
@@ -168,7 +168,7 @@ class MCTextView: UIView {
 
 extension MCTextView : UITextViewDelegate {
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         if textView.text.count > limitCount {
             
             //获得已输出字数与正输入字母数
@@ -194,12 +194,12 @@ extension MCTextView : UITextViewDelegate {
         self.limitCountLabel.text =  "\(textView.text.count)/\(limitCount)"
     }
 
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         self.placeholderLabel.isHidden = true
         return true
     }
 
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             self.placeholderLabel.isHidden = false
         } else {
@@ -207,7 +207,7 @@ extension MCTextView : UITextViewDelegate {
         }
     }
 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         if returnKeyType == MCReturnKeyType.done {
             if text == "\n"{

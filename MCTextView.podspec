@@ -9,4 +9,6 @@ s.author       = { "MC" => "562863544@qq.com" }
 s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/mancongiOS/MCTextView.git", :tag => "1.0" }
 s.source_files = "MCTextView/MCTextView/*.swift"
+s.ios.deployment_target = '8.0'
+
 end
