@@ -123,7 +123,7 @@ class MCTextView: UIView {
     }
     
     // 字符串的截取 从头截取到指定index
-    func MCString_prefix(index:Int,text:String) -> String {
+    private func MCString_prefix(index:Int,text:String) -> String {
         if text.count <= index {
             return text
         } else {
